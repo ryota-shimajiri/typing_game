@@ -1,0 +1,21 @@
+{
+  "name": "typing_game",
+  "version": "1.0.0",
+  "description": "\"# typing_game\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryota-shimajiri/typing_game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryota-shimajiri/typing_game/issues"
+  },
+  "homepage": "https://github.com/ryota-shimajiri/typing_game#readme"
+}
