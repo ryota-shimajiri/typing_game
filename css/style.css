@@ -1,5 +1,9 @@
-h1 {
+.questionField {
     text-align: center;
+}
+
+.questionField h1 {
+    line-height: 10;
 }
 
 button {
