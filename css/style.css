@@ -1,12 +1,18 @@
-.questionField {
+.typingField {
     text-align: center;
+    margin: 50px;
+    background-color: antiquewhite;
 }
 
-.questionField h1 {
-    line-height: 10;
+.typingField p {
+    line-height: 5;
+    font-size: 60px;
+    border-style: solid;
+    border-color:burlywood;
 }
 
 button {
     display: block;
     margin: auto;
+    width: 100px;
 }
