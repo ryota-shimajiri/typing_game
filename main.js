@@ -4,7 +4,11 @@ startBtn.addEventListener("click", start);
 function start() {
     init();
     startFlg = true;
-    document.getElementById("typingText").innerHTML = questionList[randomNum];
+    var typingText = document.getElementById("typingText");
+    if (typingText === null) {
+        return;
+    }
+    typingText.innerHTML = questionList[randomNum];
 }
 document.addEventListener("keydown", function (e) {
     if (startFlg === false) {
@@ -18,15 +22,19 @@ function init() {
     currentPosition = 0;
 }
 function typing(e) {
-    var key = e.key, typingText = questionList[randomNum];
-    if (key === typingText.charAt(currentPosition)) {
+    var key = e.key, questionText = questionList[randomNum];
+    var typingText = document.getElementById("typingText");
+    if (typingText === null) {
+        return;
+    }
+    if (key === questionText.charAt(currentPosition)) {
         currentPosition++;
         // 先頭の文字を切り取る
-        document.getElementById("typingText").innerHTML = typingText.substring(currentPosition, textLength);
+        typingText.innerHTML = questionText.substring(currentPosition, textLength);
         if (currentPosition === textLength) {
             // 最後の文字を打ち終えたら
             init();
-            document.getElementById("typingText").innerHTML = questionList[randomNum];
+            typingText.innerHTML = questionList[randomNum];
         }
     }
 }
