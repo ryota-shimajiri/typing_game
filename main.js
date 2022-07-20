@@ -1,9 +1,9 @@
 var questionList = ["apple", "banana", "melon", "orange", "grape", "coconut", "strawberry"], startBtn = document.getElementById("start");
-var randomNum = Math.floor(Math.random() * questionList.length), textLength = questionList[randomNum].length, currentPosition = 0, startFlg = false;
+var randomNum = Math.floor(Math.random() * questionList.length), textLength = questionList[randomNum].length, currentPosition = 0, isStart = false;
 startBtn.addEventListener("click", start);
 function start() {
     init();
-    startFlg = true;
+    isStart = true;
     var typingText = document.getElementById("typingText");
     if (typingText === null) {
         return;
@@ -11,7 +11,7 @@ function start() {
     typingText.innerHTML = questionList[randomNum];
 }
 document.addEventListener("keydown", function (e) {
-    if (startFlg === false) {
+    if (isStart === false) {
         return;
     }
     typing(e);

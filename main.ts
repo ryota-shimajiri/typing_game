@@ -3,13 +3,13 @@ const questionList : string[] = ["apple", "banana", "melon", "orange", "grape", 
 let randomNum: number = Math.floor(Math.random() * questionList.length),
     textLength: number = questionList[randomNum].length,
     currentPosition: number = 0,
-    startFlg: boolean = false;
+    isStart: boolean = false;
 
 startBtn.addEventListener("click", start);
 
 function start() {
     init();
-    startFlg = true;
+    isStart = true;
 
     const typingText = document.getElementById("typingText") as HTMLElement;
     if (typingText === null) {
@@ -20,7 +20,7 @@ function start() {
 
 document.addEventListener("keydown", (e) => {
 
-    if (startFlg === false) {
+    if (isStart === false) {
         return;
     }
     typing(e);
