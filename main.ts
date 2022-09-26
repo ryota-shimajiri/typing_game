@@ -1,36 +1,36 @@
-const questionList: string[] = ["apple", "banana", "melon", "orange", "grape", "coconut", "strawberry"];
-const startBtn: HTMLElement = document.getElementById("start") as HTMLElement;
+const questionList = ["apple", "banana", "melon", "orange", "grape", "coconut", "strawberry"];
+const startBtn = document.getElementById("start");
 
 // どの文字を出すかはランダムとする
-let randomNum: number = Math.floor(Math.random() * questionList.length);
-let textLength: number = questionList[randomNum].length;
-let currentPosition: number = 0;
-let isStart: boolean = false;
+let randomNum = Math.floor(Math.random() * questionList.length);
+let textLength = questionList[randomNum].length;
+let currentPosition = 0;
+let isStart = false;
 
-startBtn.addEventListener("click", start);
-
-function start() {
+const start = () => {
     init();
     isStart = true;
 
-    const typingText: HTMLElement = document.getElementById("typingText") as HTMLElement;
+    const typingText = document.getElementById("typingText");
     if (typingText === null) return;
     typingText.innerHTML = questionList[randomNum];
 }
+
+startBtn?.addEventListener("click", start);
 
 document.addEventListener("keydown", (e) => {
     if (isStart === false) return;
     typing(e);
 });
 
-function init() {
+const init = () => {
     randomNum = Math.floor(Math.random() * questionList.length);
     textLength = questionList[randomNum].length;
     currentPosition = 0;
 }
 
-function typing(e: KeyboardEvent) {
-    const typingText: HTMLElement = document.getElementById("typingText") as HTMLElement;
+const typing = (e: KeyboardEvent) => {
+    const typingText = document.getElementById("typingText");
     if (typingText === null) return;
 
     const questionText = questionList[randomNum];
