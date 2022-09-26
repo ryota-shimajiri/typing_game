@@ -1,25 +1,21 @@
 const questionList = ["apple", "banana", "melon", "orange", "grape", "coconut", "strawberry"];
-const startBtn = document.getElementById("start");
 
 // どの文字を出すかはランダムとする
-let randomNum = Math.floor(Math.random() * questionList.length);
-let textLength = questionList[randomNum].length;
-let currentPosition = 0;
-let isStart = false;
+let randomNum = Math.floor(Math.random() * questionList.length),
+    textLength = questionList[randomNum].length,
+    currentPosition = 0;
 
 const start = () => {
     init();
-    isStart = true;
-
     const typingText = document.getElementById("typingText");
     if (typingText === null) return;
     typingText.innerHTML = questionList[randomNum];
 }
 
+const startBtn = document.getElementById("start");
 startBtn?.addEventListener("click", start);
 
 document.addEventListener("keydown", (e) => {
-    if (isStart === false) return;
     typing(e);
 });
 

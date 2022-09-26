@@ -1,30 +1,24 @@
 var questionList = ["apple", "banana", "melon", "orange", "grape", "coconut", "strawberry"];
-var startBtn = document.getElementById("start");
 // どの文字を出すかはランダムとする
-var randomNum = Math.floor(Math.random() * questionList.length);
-var textLength = questionList[randomNum].length;
-var currentPosition = 0;
-var isStart = false;
-startBtn.addEventListener("click", start);
-function start() {
+var randomNum = Math.floor(Math.random() * questionList.length), textLength = questionList[randomNum].length, currentPosition = 0;
+var start = function () {
     init();
-    isStart = true;
     var typingText = document.getElementById("typingText");
     if (typingText === null)
         return;
     typingText.innerHTML = questionList[randomNum];
-}
+};
+var startBtn = document.getElementById("start");
+startBtn === null || startBtn === void 0 ? void 0 : startBtn.addEventListener("click", start);
 document.addEventListener("keydown", function (e) {
-    if (isStart === false)
-        return;
     typing(e);
 });
-function init() {
+var init = function () {
     randomNum = Math.floor(Math.random() * questionList.length);
     textLength = questionList[randomNum].length;
     currentPosition = 0;
-}
-function typing(e) {
+};
+var typing = function (e) {
     var typingText = document.getElementById("typingText");
     if (typingText === null)
         return;
@@ -39,4 +33,4 @@ function typing(e) {
             typingText.innerHTML = questionList[randomNum];
         }
     }
-}
+};
